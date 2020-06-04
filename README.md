@@ -11,4 +11,4 @@ This Project was inspired by https://github.com/Uttkarsh09/3.14thon-PROjects/blo
 After this I'm never going to do any Python Projects with GUI..yea python sucks in gui but i really like the performance.
 
 Hit me Up! if you are willing to help and to make it better!
-This Project was made by SAHIL SHAHANE
+
