@@ -26,11 +26,13 @@ class createWindow(QW.QWidget):
         self.setLayout(grid)
         grid.setSpacing(2)
 
+        
+
         # EDITOR / TEXT PANEL
         editor = QW.QTextEdit()
         editor.setFont(font)
         grid.addWidget(editor,0,0,1,4)
-
+        
         # BUTTONS
         btn_names = ['AC', '<-', '%', '/',
                      '7' , '8' , '9', '*',
@@ -47,7 +49,7 @@ class createWindow(QW.QWidget):
             # Row = position[0]
             # Column = position[1]
             buttons.append(QW.QPushButton(btn_name))
-            buttons[index].setStyleSheet("padding:22%;")
+            buttons[index].setStyleSheet("padding:22%;font:17px;")
             if(position[0]==5 and position[1]==2):
              grid.addWidget(buttons[index],*position,1,2)
             else:
@@ -56,97 +58,142 @@ class createWindow(QW.QWidget):
         # THIS IS SECTION IS CREATED DUE TO A BUG IN PYQT5 fucking gay developers
         def btn_ac(self):
             editor.clear()
+            checkInput()
         def btn_idk(self):
-            print("Pressed idk")
+            editor.setText(editor.toPlainText()[0:len(editor.toPlainText())-1])
+            checkInput()
         def btn_0(self):
-            print("Pressed 0")
             editor.setText(editor.toPlainText()+"0")
+            checkInput()
         def btn_1(self):
-            print("Pressed 1")
             editor.setText(editor.toPlainText()+"1")
+            checkInput()
         def btn_2(self):
-            print("Pressed 2")
             editor.setText(editor.toPlainText()+"2")
+            checkInput()
         def btn_3(self):
-            print("Pressed 3")
             editor.setText(editor.toPlainText()+"3")
+            checkInput()
         def btn_4(self):
-            print("Pressed 4")
             editor.setText(editor.toPlainText()+"4")
+            checkInput()
         def btn_5(self):
-            print("Pressed 5")
             editor.setText(editor.toPlainText()+"5")
+            checkInput()
         def btn_6(self):
-            print("Pressed 6")
             editor.setText(editor.toPlainText()+"6")
+            checkInput()
         def btn_7(self):
-            print("Pressed 7")
             editor.setText(editor.toPlainText()+"7")
+            checkInput()
         def btn_8(self):
-            print("Pressed 8")
             editor.setText(editor.toPlainText()+"8")
+            checkInput()
         def btn_9(self):
-            print("Pressed 9")
             editor.setText(editor.toPlainText()+"9")
+            checkInput()
         def btn_mod(self):
-            print("Pressed mod")
             editor.setText(editor.toPlainText()+"%")
+            checkInput()
         def btn_add(self):
-            print("Pressed add")
             editor.setText(editor.toPlainText()+"+")
+            checkInput()
         def btn_mul(self):
-            print("Pressed mul")
             editor.setText(editor.toPlainText()+"*")
+            checkInput()
         def btn_sub(self):
-            print("Pressed sub")
             editor.setText(editor.toPlainText()+"-")
+            checkInput()
         def btn_div(self):
-            print("Pressed div")
             editor.setText(editor.toPlainText()+"/")
+            checkInput()
         def btn_eql(self):
-            print("Pressed eql")
             ans = editor.toPlainText().strip()
+
             try:
              ans = str(eval(ans))
              editor.clear()
              editor.setText(ans)
+             editor.setStyleSheet("color:black;")
             except:
-             print("Error Occured")
-
+             editor.setStyleSheet("color:red;")
             
         def btn_dot(self):
-            print("Pressed dot")
             editor.setText(editor.toPlainText()+".")  
+        
+        def checkInput():
+            try:
+             eval(editor.toPlainText().strip())
+             editor.setStyleSheet("color:black;")
+            except:
+             editor.setStyleSheet("color:red;")
+
 
         # ADD EVENTS TO THE BUTTONS
         buttons[0].clicked.connect(btn_ac)
+        buttons[0].setShortcut("space")
+
         buttons[1].clicked.connect(btn_idk)
+        buttons[1].setShortcut("backspace")
+
         buttons[2].clicked.connect(btn_mod)
+        buttons[2].setShortcut("shift+5")
+
         buttons[3].clicked.connect(btn_div)
+        buttons[3].setShortcut("/")
+
         buttons[4].clicked.connect(btn_7)
+        buttons[4].setShortcut("7")
+
         buttons[5].clicked.connect(btn_8)
+        buttons[5].setShortcut("8")
+
         buttons[6].clicked.connect(btn_9)
+        buttons[6].setShortcut("9")
+
         buttons[7].clicked.connect(btn_mul)
+        buttons[7].setShortcut("*")
+
         buttons[8].clicked.connect(btn_4)
+        buttons[8].setShortcut("4")
+
         buttons[9].clicked.connect(btn_5)
+        buttons[9].setShortcut("5")
+
         buttons[10].clicked.connect(btn_6)
+        buttons[10].setShortcut("6")
+
         buttons[11].clicked.connect(btn_sub)
+        buttons[11].setShortcut("-")
+
         buttons[12].clicked.connect(btn_1)
+        buttons[12].setShortcut("1")
+
         buttons[13].clicked.connect(btn_2)
+        buttons[13].setShortcut("2")
+
         buttons[14].clicked.connect(btn_3)
+        buttons[14].setShortcut("3")
+
         buttons[15].clicked.connect(btn_add)
+        buttons[15].setShortcut("+")
+
         buttons[16].clicked.connect(btn_dot)
+        buttons[16].setShortcut(".")
+
         buttons[17].clicked.connect(btn_0)
+        buttons[17].setShortcut("0")
+
         buttons[18].clicked.connect(btn_eql)
+        buttons[18].setShortcut("return")
 
 
 
 
 def main():
     App = QW.QApplication(sys.argv)
-    main_window = createWindow(300,400,"Calculator",None)
+    main_window = createWindow(300,400,"Calculator","assets/icon.png")
     # ADD YOUR SHIT HERE
-
 
 
 
