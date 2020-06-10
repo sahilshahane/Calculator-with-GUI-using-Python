@@ -6,7 +6,6 @@ This Project requiers PyQt5 module
   # pip install PyQt5
 
 The Calculator is compatible with Both Linux and Windows 
-# WORK IN PROGRESS
 
 This Project was inspired by https://github.com/Uttkarsh09/3.14thon-PROjects/blob/master/calculator.py \
 After this I'm never going to do any Python Projects with GUI..yea python sucks in gui but i really like the performance.
