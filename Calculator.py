@@ -193,11 +193,6 @@ class createWindow(QW.QWidget):
 def main():
     App = QW.QApplication(sys.argv)
     main_window = createWindow(300,400,"Calculator","assets/icon.png")
-    # ADD YOUR SHIT HERE
-
-
-
-    # END OF SHIT 
     main_window.show()
     sys.exit(App.exec_())
 
